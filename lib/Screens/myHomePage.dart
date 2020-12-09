@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stateManagementWithProvider/Screens/cartDetails.dart';
+import 'package:stateManagementWithProvider/models/product.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -7,6 +8,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+// Make a list of product
+// Initialize a list of Product in products variable with empty array;
+  // List<Product> products = [];
+  // Lets inset data in list of Product
+  List<Product> products = [
+    Product(name: "Oil Soyabean", price: 45),
+    Product(name: "Mustard Soyabean", price: 55),
+    Product(name: "Cannola Soyabean", price: 60),
+    Product(name: "Olive Soyabean", price: 75),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
