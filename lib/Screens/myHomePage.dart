@@ -22,31 +22,44 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Shopping   (State Management) "),
-        actions: [
-          // You can use Row, Column or Stack (Overlay Item better to use this)
-          Stack(
-            children: [
-              IconButton(
-                  icon: Icon(Icons.shopping_cart),
-                  onPressed: () {
-                    print("Go to another page of cart details");
-                    // Navigator.push(context,
-                    //     MaterialPageRoute(builder: (context) => CardDetails()));
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return CardDetails();
-                    }));
-                  }),
-              Text("2"),
-            ],
-          )
-        ],
-      ),
-      body: Center(
-        child: Text("State Management with Flutter"),
-      ),
-    );
+        appBar: AppBar(
+          title: Text("Shopping   (State Management) "),
+          actions: [
+            // You can use Row, Column or Stack (Overlay Item better to use this)
+            Stack(
+              children: [
+                IconButton(
+                    icon: Icon(Icons.shopping_cart),
+                    onPressed: () {
+                      print("Go to another page of cart details");
+                      // Navigator.push(context,
+                      //     MaterialPageRoute(builder: (context) => CardDetails()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return CardDetails();
+                      }));
+                    }),
+                Text("2"),
+              ],
+            )
+          ],
+        ),
+        body: ListView.builder(
+            // give length to count
+            itemCount: products.length,
+            // give products details base on index
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(products[index].name),
+                // as price is double to change it to sting
+                subtitle: Text(products[index].price.toString()),
+                // to give icon at right side, for left side we use leading
+                trailing: Icon(Icons.add),
+                // while clicking add the number of products in basket
+                onTap: () {
+                  // code to increase the number in basket
+                },
+              );
+            }));
   }
 }
