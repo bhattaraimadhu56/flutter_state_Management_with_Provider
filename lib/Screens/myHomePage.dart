@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stateManagementWithProvider/Screens/cartDetails.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -19,6 +20,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   icon: Icon(Icons.shopping_cart),
                   onPressed: () {
                     print("Go to another page of cart details");
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) => CardDetails()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return CardDetails();
+                    }));
                   }),
               Text("2"),
             ],
