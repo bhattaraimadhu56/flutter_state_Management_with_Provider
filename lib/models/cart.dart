@@ -1,6 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:stateManagementWithProvider/models/product.dart';
 
-class Cart {
+class Cart extends ChangeNotifier {
   List<Product> products = [];
   double totalPrice;
   // constructor
@@ -13,6 +14,7 @@ class Cart {
 //added in price
     // totalPrice = totalPrice + p.price;
     totalPrice += p.price;
+    notifyListeners();
   }
 
   // remove product function
@@ -22,6 +24,7 @@ class Cart {
 //Removed in price
     totalPrice = totalPrice - p.price;
     //  totalPrice -= p.price;
+    notifyListeners();
   }
 
   // get total price getter
@@ -33,7 +36,8 @@ class Cart {
 
 // total count getter
   int get count {
-    return products.length;
+    // to handle exception of null in dart
+    return products.length ?? 0;
   }
 
   //All items on the cart or basket
